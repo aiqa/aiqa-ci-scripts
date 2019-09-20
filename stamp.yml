@@ -1,0 +1,40 @@
+filename:    'version.txt'
+regex:       '|(?P<version>[\d\.]+)|'
+replacement: '{{ version }}'
+
+replacements:
+
+    -
+        filename:    '.gitignore'
+        regex:       '|ver. (?P<version>[\d\.]+)|'
+        replacement: 'ver. {{ version }}'
+
+    -
+        filename:    '_ci_find_local_tests.sh'
+        regex:       '|ver. (?P<version>[\d\.]+)|'
+        replacement: 'ver. {{ version }}'
+
+    -
+        filename:    '_ci_reload.sh'
+        regex:       '|ver. (?P<version>[\d\.]+)|'
+        replacement: 'ver. {{ version }}'
+
+    -
+        filename:    '_ci_run_tests_with_parallel.sh'
+        regex:       '|ver. (?P<version>[\d\.]+)|'
+        replacement: 'ver. {{ version }}'
+
+    -
+        filename:    '_ci_verify_tests_results.sh'
+        regex:       '|ver. (?P<version>[\d\.]+)|'
+        replacement: 'ver. {{ version }}'
+
+    -
+        filename:    'ci.sh'
+        regex:       '|ver. (?P<version>[\d\.]+)|'
+        replacement: 'ver. {{ version }}'
+
+    -
+        filename:    '_ci_vars.sh'
+        regex:       '|ver. (?P<version>[\d\.]+)|'
+        replacement: 'ver. {{ version }}'

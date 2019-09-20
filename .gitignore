@@ -1,0 +1,15 @@
+####################################
+### AIQA CI SCRIPTS - START
+###
+### https://aiqa.tech
+### (c)2019 AIQA Technologies
+###
+### ver. 0.1.8
+
+__ci_scenarios_list.txt
+__ci_parallel.log
+__ci_result.txt
+
+###
+### AIQA CI SCRIPTS - STOP
+####################################
