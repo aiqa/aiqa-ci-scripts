@@ -38,3 +38,8 @@ replacements:
         filename:    '_ci_vars.sh'
         regex:       '|ver. (?P<version>[\d\.]+)|'
         replacement: 'ver. {{ version }}'
+
+    -
+        filename:    '_ci_aiqa.sh'
+        regex:       '|ver. (?P<version>[\d\.]+)|'
+        replacement: 'ver. {{ version }}'
