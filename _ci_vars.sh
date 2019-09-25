@@ -26,4 +26,6 @@ CI_SCENARIOS_FILEMASK="*.feature"
 
 CI_BACKEND_DIR="backend"
 
+CI_CUSTOM_BUILD=0
+
 # vim:ts=4:sw=4:et:syn=sh:
