@@ -5,7 +5,7 @@
 #
 # (c)2019 AIQA Technologies
 #
-# ver. 0.1.15
+# ver. 0.1.16
 
 #
 # PARAMETERS
