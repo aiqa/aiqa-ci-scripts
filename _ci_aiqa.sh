@@ -11,7 +11,7 @@
 # PARAMETERS
 #    --full-set        - full set with AIQA system
 #    --predict         - prediction by AIQA system
-#    --divided-predict - prediction by AIQA system with division of the case
+#    --predict-divided - prediction by AIQA system with division of the case
 #
 # By default: local, full set.
 #
@@ -22,8 +22,8 @@ CMD_PARAM=
 if [ "$1" == "--predict" ]; then
     CMD_PARAM="--predict"
 fi
-if [ "$1" == "--divided-predict" ]; then
-    CMD_PARAM="--divided-predict"
+if [ "$1" == "--predict-divided" ]; then
+    CMD_PARAM="--predict-divided"
 fi
 
 aiqa build:start ${CMD_PARAM}

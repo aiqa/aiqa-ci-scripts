@@ -12,7 +12,15 @@ source _ci_vars.sh
 ___CMD_PARAM=
 if [ "$1" == "--predict" ]; then
     # max: 5 failures
-    ___CMD_PARAM="--halt soon,fail=5"
+    ___CMD_PARAM="--halt soon,fail=3"
+
+    # max:10% failures
+    #___CMD_PARAM="--halt soon,fail=10%"
+fi
+
+if [ "$1" == "--predict-divided" ]; then
+    # max: 5 failures
+    ___CMD_PARAM="--halt soon,fail=3"
 
     # max:10% failures
     #___CMD_PARAM="--halt soon,fail=10%"
