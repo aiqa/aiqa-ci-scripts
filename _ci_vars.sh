@@ -20,6 +20,12 @@
 CI_PARALLEL_LOG_FILENAME=__ci_parallel.log
 CI_PARALLEL_NUMBER_OF_THREADS=""
 
+# max: 2 failures
+CI_PARALLEL_EXIT_STRATEGY="--halt soon,fail=2"
+
+# max:3% failures
+#CI_PARALLEL_EXIT_STRATEGY="--halt soon,fail=3%"
+
 
 CI_SCENARIOS_LIST_FILENAME=__ci_scenarios_list.txt
 CI_FINAL_TEST_RESULT_FILENAME=__ci_result.txt
