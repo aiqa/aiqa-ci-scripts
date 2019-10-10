@@ -9,25 +9,19 @@
 
 source _ci_vars.sh
 
-___CMD_PARAM=
+___CI_PARALLEL_EXIT_STRATEGY=
 if [ "$1" == "--predict" ]; then
-    # max: 5 failures
-    ___CMD_PARAM="--halt soon,fail=3"
-
-    # max:10% failures
-    #___CMD_PARAM="--halt soon,fail=10%"
+    ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
 fi
 
 if [ "$1" == "--predict-divided" ]; then
-    # max: 5 failures
-    ___CMD_PARAM="--halt soon,fail=3"
-
-    # max:10% failures
-    #___CMD_PARAM="--halt soon,fail=10%"
+    ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
 fi
 
 rm -f ${CI_PARALLEL_LOG_FILENAME}
 
-time cat ${CI_SCENARIOS_LIST_FILENAME} | parallel ${CI_PARALLEL_NUMBER_OF_THREADS} ${___CMD_PARAM} --joblog ${CI_PARALLEL_LOG_FILENAME} --gnu ${CI_TEST_RUNNER_COMMAND}
+set -x
+
+time cat ${CI_SCENARIOS_LIST_FILENAME} | parallel ${CI_PARALLEL_NUMBER_OF_THREADS} ${___CI_PARALLEL_EXIT_STRATEGY} --joblog ${CI_PARALLEL_LOG_FILENAME} --gnu ${CI_TEST_RUNNER_COMMAND}
 
 # vim:ts=4:sw=4:et:syn=sh:
