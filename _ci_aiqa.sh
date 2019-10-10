@@ -12,6 +12,7 @@
 #    --full-set        - full set with AIQA system
 #    --predict         - prediction by AIQA system
 #    --predict-divided - prediction by AIQA system with division of the case
+#    --rerun           - rerun failed tests
 #
 # By default: local, full set.
 #
@@ -26,16 +27,23 @@ if [ "$1" == "--predict-divided" ]; then
     CMD_PARAM="--predict-divided"
 fi
 
-aiqa build:start ${CMD_PARAM}
-echo "==============================================================="
-echo "START: initialize:tests"
-time aiqa initialize:tests
-echo "==============================================================="
-echo "START: initialize:src"
-time aiqa initialize:src
-echo "==============================================================="
-echo "START: build:testsToRun"
-aiqa build:testsToRun ${CMD_PARAM} > ${CI_SCENARIOS_LIST_FILENAME}
+if [ ! "$1" == "--rerun" ]; then
+    aiqa build:start ${CMD_PARAM}
+    echo "==============================================================="
+    echo "START: initialize:tests"
+    time aiqa initialize:tests
+    echo "==============================================================="
+    echo "START: initialize:src"
+    time aiqa initialize:src
+    echo "==============================================================="
+    echo "START: build:testsToRun"
+    aiqa build:testsToRun ${CMD_PARAM} > ${CI_SCENARIOS_LIST_FILENAME}
+else
+    echo "==============================================================="
+    echo "RERUN: build:failedTests"
+    aiqa build:failedTests > ${CI_SCENARIOS_LIST_FILENAME}
+fi
+
 echo ""
 echo ""
 __NUMBER_OF_PREDICTED_TESTS=$(cat ${CI_SCENARIOS_LIST_FILENAME} | wc -l)
@@ -48,7 +56,10 @@ time ./_ci_run_tests_with_parallel.sh ${CMD_PARAM}
 echo "==============================================================="
 echo "START: verify results"
 ./_ci_verify_tests_results.sh
-echo "==============================================================="
-aiqa build:stop
+
+if [ ! "$1" == "--rerun" ]; then
+    echo "==============================================================="
+    aiqa build:stop
+fi
 
 # vim:ts=4:sw=4:et:syn=sh:
