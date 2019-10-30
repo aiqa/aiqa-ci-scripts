@@ -50,6 +50,8 @@ __NUMBER_OF_PREDICTED_TESTS=$(cat ${CI_SCENARIOS_LIST_FILENAME} | wc -l)
 echo "NUMBER OF PREDICTED TESTS: ${__NUMBER_OF_PREDICTED_TESTS}"
 echo ""
 cat ${CI_SCENARIOS_LIST_FILENAME}
+echo ""
+echo "NUMBER OF PREDICTED TESTS: ${__NUMBER_OF_PREDICTED_TESTS}"
 echo "==============================================================="
 echo "START: run tests with parallel"
 time ./_ci_run_tests_with_parallel.sh ${CMD_PARAM}
