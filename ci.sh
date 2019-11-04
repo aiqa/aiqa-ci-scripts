@@ -33,4 +33,6 @@ fi
 
 ./_ci_aiqa.sh $1
 
+exit $?
+
 # vim:ts=4:sw=4:et:syn=sh:
