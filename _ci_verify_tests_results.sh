@@ -21,9 +21,13 @@ echo "Number of errors:               " $NUMBER_OF_ERRORS
 echo
 
 echo "0" > ${CI_FINAL_TEST_RESULT_FILENAME}
+CI_FINAL_TEST_RESULT=0
 
 if [ "$NUMBER_OF_ERRORS" -gt 0 ]; then
     echo "1" > ${CI_FINAL_TEST_RESULT_FILENAME}
+    CI_FINAL_TEST_RESULT=1
 fi
+
+exit ${CI_FINAL_TEST_RESULT}
 
 # vim:ts=4:sw=4:et:syn=sh:

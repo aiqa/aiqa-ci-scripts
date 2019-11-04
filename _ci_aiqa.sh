@@ -59,9 +59,12 @@ echo "==============================================================="
 echo "START: verify results"
 ./_ci_verify_tests_results.sh
 
+CI_FINAL_TEST_RESULT=$?
+
 if [ ! "$1" == "--rerun" ]; then
     echo "==============================================================="
     aiqa build:stop
 fi
 
+exit ${CI_FINAL_TEST_RESULT}
 # vim:ts=4:sw=4:et:syn=sh:
