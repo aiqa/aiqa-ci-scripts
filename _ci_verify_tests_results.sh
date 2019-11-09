@@ -15,8 +15,8 @@ NUMBER_OF_SCENARIO_FILES=$(cat ${CI_SCENARIOS_LIST_FILENAME} | wc -l)
 NUMBER_OF_ERRORS=$(cat "${CI_PARALLEL_LOG_FILENAME}" | tail -n "$NUMBER_OF_SCENARIO_FILES" | awk '{print $7}' | grep '1' | wc -l)
 
 echo
-echo "Number of parallel log entries: " $NUMBER_OF_PARALLEL_LOG_ENTRIES
-echo "Number of scenarios:            " $NUMBER_OF_SCENARIO_FILES
+echo "Number of predicted tests:      " $NUMBER_OF_SCENARIO_FILES
+echo "Number of executed tests:       " $NUMBER_OF_PARALLEL_LOG_ENTRIES
 echo "Number of errors:               " $NUMBER_OF_ERRORS
 echo
 
