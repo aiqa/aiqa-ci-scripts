@@ -7,16 +7,6 @@
 #
 # ver. 0.1.24
 
-#
-# PARAMETERS
-#    --full-set        - full set with AIQA system
-#    --predict         - prediction by AIQA system
-#    --predict-divided - prediction by AIQA system with division of the case
-#    --rerun           - run only the tests that failed in the previous run
-#
-# By default (i.e. without any parameters): local run, full set.
-#
-
 source _ci_vars.sh
 
 CMD_PARAM=
