@@ -40,6 +40,7 @@ CI_SCENARIOS_FILEMASK="*.feature"
 
 CI_BACKEND_DIR="backend"
 
+CI_CUSTOM_RELOAD=1
 CI_CUSTOM_BUILD=0
 
 if [ -f "_ci_vars_personal.sh" ]; then

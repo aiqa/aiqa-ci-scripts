@@ -19,7 +19,9 @@
 
 source _ci_vars.sh
 
-./_ci_reload.sh
+if [ ${CI_CUSTOM_RELOAD} -eq 1 ]; then
+    ./_ci_reload.sh
+fi
 
 if [ ${CI_CUSTOM_BUILD} -eq 1 ]; then
     ./_ci_build.sh
