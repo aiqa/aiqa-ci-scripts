@@ -42,4 +42,9 @@ CI_BACKEND_DIR="backend"
 
 CI_CUSTOM_BUILD=0
 
+if [ -f "_ci_vars_personal.sh" ]; then
+    source _ci_vars_personal.sh
+fi
+
+
 # vim:ts=4:sw=4:et:syn=sh:

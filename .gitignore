@@ -10,6 +10,8 @@ __ci_scenarios_list.txt
 __ci_parallel.log
 __ci_result.txt
 
+_ci_vars_personal.sh
+
 ###
 ### AIQA CI SCRIPTS - STOP
 ####################################
