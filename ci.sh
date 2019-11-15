@@ -29,6 +29,10 @@ echo "==============================================================="
 echo CURRENT RUN: ${CI_CURRENT_RUN}
 echo "==============================================================="
 
+if [ ! -f "aiqa.yml" ]; then
+    cp aiqa.yml.dist aiqa.yml
+fi
+
 if [ ${CI_CUSTOM_RELOAD} -eq 1 ]; then
     ./_ci_reload.sh
 fi
