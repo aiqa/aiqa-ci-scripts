@@ -16,6 +16,8 @@
 ####################################################################################
 
 
+CI_DEFAULT_RUN=
+
 # PARALLEL
 CI_PARALLEL_LOG_FILENAME=__ci_parallel.log
 CI_PARALLEL_NUMBER_OF_THREADS=""
