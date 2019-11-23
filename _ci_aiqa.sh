@@ -51,6 +51,8 @@ echo "START: verify results"
 
 CI_FINAL_TEST_RESULT=$?
 
+echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh] = ${CI_FINAL_TEST_RESULT}"
+
 if [ ! "$1" == "--rerun" ]; then
     echo "==============================================================="
     aiqa build:stop
