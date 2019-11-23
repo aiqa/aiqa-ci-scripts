@@ -23,7 +23,7 @@ echo
 CI_FINAL_TEST_RESULT=0
 
 if [ "$NUMBER_OF_ERRORS" -gt 0 ]; then
-    echo "1" > ${CI_FINAL_TEST_RESULT_FILENAME}
+    CI_FINAL_TEST_RESULT=1
 fi
 
 echo "CI_FINAL_TEST_RESULT[_ci_verify_tests_results.sh] = ${CI_FINAL_TEST_RESULT}"
