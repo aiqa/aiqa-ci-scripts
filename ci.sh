@@ -50,10 +50,15 @@ fi
 
 ./_ci_aiqa.sh ${CI_CURRENT_RUN}
 
+CI_FINAL_TEST_RESULT=$?
+
+echo "CI_FINAL_TEST_RESULT[ci.sh] = ${CI_FINAL_TEST_RESULT}"
+
 echo "==============================================================="
 echo CURRENT RUN: ${CI_CURRENT_RUN}
 echo "==============================================================="
 
-exit $?
+
+exit ${CI_FINAL_TEST_RESULT}
 
 # vim:ts=4:sw=4:et:syn=sh:
