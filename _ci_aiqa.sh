@@ -28,6 +28,12 @@ if [ ! "$1" == "--rerun" ]; then
     echo "==============================================================="
     echo "START: build:testsToRun"
     aiqa build:testsToRun ${CMD_PARAM} > ${CI_SCENARIOS_LIST_FILENAME}
+
+    CI_FINAL_TEST_RESULT=$?
+    echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER build:testsToRun] = ${CI_FINAL_TEST_RESULT}"
+    if [ "${CI_FINAL_TEST_RESULT}" -gt 0 ]; then
+        exit ${CI_FINAL_TEST_RESULT}
+    fi
 else
     echo "==============================================================="
     echo "RERUN: build:failedTests"
