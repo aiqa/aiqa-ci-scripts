@@ -11,7 +11,7 @@ source _ci_vars.sh
 
 if ! [ -x "$(command -v vagrant)" ]; then
   if [ "vagrant" == "$(whoami)" ]; then
-    /app/backend-php/reload.sh
+    /app/${CI_BACKEND_DIR}/reload.sh
   fi
   exit
 fi
