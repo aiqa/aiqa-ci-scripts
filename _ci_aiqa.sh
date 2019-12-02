@@ -9,12 +9,31 @@
 
 source _ci_vars.sh
 
+
 CMD_PARAM=
+if [ "$1" == "--full-set" ]; then
+    CMD_PARAM="--strategy=full-set"
+fi
+if [ "$1" == "--all" ]; then
+    CMD_PARAM="--strategy=all"
+fi
+if [ "$1" == "--none" ]; then
+    CMD_PARAM="--strategy=none"
+fi
+if [ "$1" == "--one" ]; then
+    CMD_PARAM="--strategy=all"
+fi
+if [ "$1" == "--random1" ]; then
+    CMD_PARAM="--strategy=random1"
+fi
+if [ "$1" == "--random3" ]; then
+    CMD_PARAM="--strategy=random3"
+fi
 if [ "$1" == "--predict" ]; then
-    CMD_PARAM="--predict"
+    CMD_PARAM="--strategy=predict"
 fi
 if [ "$1" == "--predict-divided" ]; then
-    CMD_PARAM="--predict-divided"
+    CMD_PARAM="--strategy=predict-divided"
 fi
 
 if [ ! "$1" == "--rerun" ]; then
