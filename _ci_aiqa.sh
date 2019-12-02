@@ -21,7 +21,7 @@ if [ "$1" == "--none" ]; then
     CMD_PARAM="--strategy=none"
 fi
 if [ "$1" == "--one" ]; then
-    CMD_PARAM="--strategy=all"
+    CMD_PARAM="--strategy=one"
 fi
 if [ "$1" == "--random1" ]; then
     CMD_PARAM="--strategy=random1"
@@ -34,6 +34,9 @@ if [ "$1" == "--predict" ]; then
 fi
 if [ "$1" == "--predict-divided" ]; then
     CMD_PARAM="--strategy=predict-divided"
+fi
+if [ "$1" == "--smoke" ]; then
+    CMD_PARAM="--strategy=smoke"
 fi
 
 if [ ! "$1" == "--rerun" ]; then

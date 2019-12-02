@@ -9,10 +9,17 @@
 
 #
 # PARAMETERS
-#    --full-set        - full set with AIQA system
-#    --predict         - prediction by AIQA system
-#    --predict-divided - prediction by AIQA system with division of the case
-#    --rerun           - run only the tests that failed in the previous run
+#
+#    --full-set
+#    --all
+#    --none
+#    --one
+#    --random1
+#    --random3
+#    --predict
+#    --predict-divided
+#    --smoke
+#    --rerun
 #
 # By default (i.e. without any parameters): local run, full set.
 #
