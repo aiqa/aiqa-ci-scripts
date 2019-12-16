@@ -38,6 +38,9 @@ fi
 if [ "$1" == "--smoke" ]; then
     CMD_PARAM="--strategy=smoke"
 fi
+if [ "$1" == "--knn" ]; then
+    CMD_PARAM="--strategy=knn"
+fi
 
 if [ ! "$1" == "--rerun" ]; then
     aiqa build:start ${CMD_PARAM}
