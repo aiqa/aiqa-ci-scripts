@@ -14,6 +14,10 @@ if [ "$1" == "--predict" ]; then
     ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
 fi
 
+if [ "$1" == "--knn" ]; then
+    ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
+fi
+
 if [ "$1" == "--predict-divided" ]; then
     ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
 fi
