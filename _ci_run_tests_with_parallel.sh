@@ -10,15 +10,15 @@
 source _ci_vars.sh
 
 ___CI_PARALLEL_EXIT_STRATEGY=
-if [ "$1" == "--predict" ]; then
+if [ "$1" == "--strategy=predict" ]; then
     ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
 fi
 
-if [ "$1" == "--knn" ]; then
+if [ "$1" == "--strategy=knn" ]; then
     ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
 fi
 
-if [ "$1" == "--predict-divided" ]; then
+if [ "$1" == "--strategy=predict-divided" ]; then
     ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
 fi
 
