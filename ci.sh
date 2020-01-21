@@ -19,6 +19,9 @@
 #    --predict
 #    --predict-divided
 #    --smoke
+#    --knn
+#    --srcTags
+#
 #    --rerun
 #
 # By default (i.e. without any parameters): local run, full set.
