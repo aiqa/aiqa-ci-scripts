@@ -21,6 +21,7 @@
 #    --smoke
 #    --knn
 #    --srcTags
+#    --predict-tags
 #
 #    --rerun
 #
