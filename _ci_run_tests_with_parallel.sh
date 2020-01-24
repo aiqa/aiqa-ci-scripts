@@ -26,6 +26,10 @@ if [ "$1" == "--strategy=predict-tags" ]; then
     ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
 fi
 
+if [ "$1" == "--strategy=knn-tags" ]; then
+    ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
+fi
+
 rm -f ${CI_PARALLEL_LOG_FILENAME}
 
 set -x

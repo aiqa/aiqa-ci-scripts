@@ -47,6 +47,9 @@ fi
 if [ "$1" == "--predict-tags" ]; then
     CMD_PARAM="--strategy=predict-tags"
 fi
+if [ "$1" == "--knn-tags" ]; then
+    CMD_PARAM="--strategy=knn-tags"
+fi
 
 if [ ! "$1" == "--rerun" ]; then
     aiqa build:start ${CMD_PARAM}
