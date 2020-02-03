@@ -23,6 +23,7 @@
 #    --srcTags
 #    --predict-tags
 #    --knn-tags
+#    --history
 #
 #    --rerun
 #

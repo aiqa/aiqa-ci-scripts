@@ -50,6 +50,9 @@ fi
 if [ "$1" == "--knn-tags" ]; then
     CMD_PARAM="--strategy=knn-tags"
 fi
+if [ "$1" == "--history" ]; then
+    CMD_PARAM="--strategy=history"
+fi
 
 if [ ! "$1" == "--rerun" ]; then
     aiqa build:start ${CMD_PARAM}
