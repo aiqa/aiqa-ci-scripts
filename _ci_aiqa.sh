@@ -53,6 +53,9 @@ fi
 if [ "$1" == "--history" ]; then
     CMD_PARAM="--strategy=history"
 fi
+if [ "$1" == "--cachegrind" ]; then
+    CMD_PARAM="--strategy=cachegrind"
+fi
 
 if [ ! "$1" == "--rerun" ]; then
     aiqa build:start ${CMD_PARAM}
