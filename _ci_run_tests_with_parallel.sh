@@ -34,6 +34,10 @@ if [ "$1" == "--strategy=history" ]; then
     ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
 fi
 
+if [ "$1" == "--strategy=cachegrind" ]; then
+    ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
+fi
+
 rm -f ${CI_PARALLEL_LOG_FILENAME}
 
 set -x
