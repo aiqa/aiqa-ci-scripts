@@ -25,6 +25,7 @@
 #    --knn-tags
 #    --history
 #    --cachegrind
+#    --recommendation
 #
 #    --rerun
 #
