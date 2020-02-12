@@ -56,6 +56,9 @@ fi
 if [ "$1" == "--cachegrind" ]; then
     CMD_PARAM="--strategy=cachegrind"
 fi
+if [ "$1" == "--recommendation" ]; then
+    CMD_PARAM="--strategy=recommendation"
+fi
 
 if [ ! "$1" == "--rerun" ]; then
     aiqa build:start ${CMD_PARAM}
