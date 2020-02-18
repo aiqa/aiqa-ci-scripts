@@ -26,6 +26,7 @@
 #    --history
 #    --map
 #    --recommendation
+#    --sinceLastDump
 #
 #    --rerun
 #

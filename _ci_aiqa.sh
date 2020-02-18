@@ -56,6 +56,9 @@ fi
 if [ "$1" == "--map" ]; then
     CMD_PARAM="--strategy=map"
 fi
+if [ "$1" == "--sinceLastDump" ]; then
+    CMD_PARAM="--strategy=sinceLastDump"
+fi
 if [ "$1" == "--recommendation" ]; then
     CMD_PARAM="--strategy=recommendation"
 fi
