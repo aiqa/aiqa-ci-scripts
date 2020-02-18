@@ -68,7 +68,7 @@ fi
 
 CI_FINAL_TEST_RESULT=$?
 
-echo "CI_FINAL_TEST_RESULT[ci.sh] = ${CI_FINAL_TEST_RESULT}"
+#echo "CI_FINAL_TEST_RESULT[ci.sh] = ${CI_FINAL_TEST_RESULT}"
 
 echo "==============================================================="
 echo CURRENT RUN: ${CI_CURRENT_RUN}
