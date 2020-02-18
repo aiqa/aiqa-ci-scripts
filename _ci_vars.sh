@@ -16,7 +16,8 @@
 ####################################################################################
 
 
-CI_DEFAULT_RUN=
+CI_DEFAULT_RUN=map
+
 
 # PARALLEL
 CI_PARALLEL_LOG_FILENAME=__ci_parallel.log
