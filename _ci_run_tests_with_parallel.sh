@@ -34,10 +34,6 @@ if [ "$1" == "--strategy=history" ]; then
     ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
 fi
 
-if [ "$1" == "--strategy=map" ]; then
-    ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
-fi
-
 if [ "$1" == "--strategy=recommendation" ]; then
     ___CI_PARALLEL_EXIT_STRATEGY=${CI_PARALLEL_EXIT_STRATEGY}
 fi
