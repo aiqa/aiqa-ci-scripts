@@ -24,7 +24,7 @@
 #    --predict-tags
 #    --knn-tags
 #    --history
-#    --cachegrind
+#    --map
 #    --recommendation
 #
 #    --rerun

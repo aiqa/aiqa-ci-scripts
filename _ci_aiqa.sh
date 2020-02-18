@@ -53,8 +53,8 @@ fi
 if [ "$1" == "--history" ]; then
     CMD_PARAM="--strategy=history"
 fi
-if [ "$1" == "--cachegrind" ]; then
-    CMD_PARAM="--strategy=cachegrind"
+if [ "$1" == "--map" ]; then
+    CMD_PARAM="--strategy=map"
 fi
 if [ "$1" == "--recommendation" ]; then
     CMD_PARAM="--strategy=recommendation"
