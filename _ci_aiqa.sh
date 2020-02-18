@@ -86,8 +86,14 @@ if [ ! "$1" == "--rerun" ]; then
     fi
 
     echo "==============================================================="
-    echo "START: build:testsToRun"
+    echo "START: build:testsToRun ${CMD_PARAM}"
+
     aiqa build:testsToRun ${CMD_PARAM} > ${CI_SCENARIOS_LIST_FILENAME}
+
+    if [ "${CMD_PARAM}" == "--strategy=map" ]; then
+        echo "START: build:testsToRun --strategy=sinceLastDump"
+        aiqa build:testsToRun --strategy=sinceLastDump >> ${CI_SCENARIOS_LIST_FILENAME}
+    fi
 
     CI_FINAL_TEST_RESULT=$?
     #echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER build:testsToRun] = ${CI_FINAL_TEST_RESULT}"
