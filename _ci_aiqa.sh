@@ -70,7 +70,7 @@ if [ ! "$1" == "--rerun" ]; then
     aiqa initialize:tests
 
     CI_FINAL_TEST_RESULT=$?
-    echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER aiqa initialize:tests] = ${CI_FINAL_TEST_RESULT}"
+    #echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER aiqa initialize:tests] = ${CI_FINAL_TEST_RESULT}"
     if [ "${CI_FINAL_TEST_RESULT}" -gt 0 ]; then
         exit ${CI_FINAL_TEST_RESULT}
     fi
@@ -80,7 +80,7 @@ if [ ! "$1" == "--rerun" ]; then
     aiqa initialize:src
 
     CI_FINAL_TEST_RESULT=$?
-    echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER aiqa initialize:src] = ${CI_FINAL_TEST_RESULT}"
+    #echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER aiqa initialize:src] = ${CI_FINAL_TEST_RESULT}"
     if [ "${CI_FINAL_TEST_RESULT}" -gt 0 ]; then
         exit ${CI_FINAL_TEST_RESULT}
     fi
@@ -90,7 +90,7 @@ if [ ! "$1" == "--rerun" ]; then
     aiqa build:testsToRun ${CMD_PARAM} > ${CI_SCENARIOS_LIST_FILENAME}
 
     CI_FINAL_TEST_RESULT=$?
-    echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER build:testsToRun] = ${CI_FINAL_TEST_RESULT}"
+    #echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER build:testsToRun] = ${CI_FINAL_TEST_RESULT}"
     if [ "${CI_FINAL_TEST_RESULT}" -gt 0 ]; then
         exit ${CI_FINAL_TEST_RESULT}
     fi
