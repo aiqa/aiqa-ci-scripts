@@ -5,7 +5,7 @@
 #
 # (c)2019 AIQA Technologies
 #
-# ver. 0.1.51
+# ver. 0.1.52
 
 source _ci_vars.sh
 
@@ -16,6 +16,9 @@ if [ "$1" == "--full-set" ]; then
 fi
 if [ "$1" == "--all" ]; then
     CMD_PARAM="--strategy=all"
+fi
+if [ "$1" == "--rerun" ]; then
+    CMD_PARAM="--strategy=rerun"
 fi
 if [ "$1" == "--none" ]; then
     CMD_PARAM="--strategy=none"
@@ -63,52 +66,52 @@ if [ "$1" == "--recommendation" ]; then
     CMD_PARAM="--strategy=recommendation"
 fi
 
+aiqa build:start ${CMD_PARAM}
+echo "==============================================================="
+echo "START: initialize:tests"
+aiqa initialize:tests
+
+CI_FINAL_TEST_RESULT=$?
+#echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER aiqa initialize:tests] = ${CI_FINAL_TEST_RESULT}"
+if [ "${CI_FINAL_TEST_RESULT}" -gt 0 ]; then
+    exit ${CI_FINAL_TEST_RESULT}
+fi
+
+echo "==============================================================="
+echo "START: initialize:src"
+aiqa initialize:src
+
+CI_FINAL_TEST_RESULT=$?
+#echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER aiqa initialize:src] = ${CI_FINAL_TEST_RESULT}"
+if [ "${CI_FINAL_TEST_RESULT}" -gt 0 ]; then
+    exit ${CI_FINAL_TEST_RESULT}
+fi
+
+echo "==============================================================="
+echo "====> PREDICTION"
+echo "build:testsToRun ${CMD_PARAM}"
+
 if [ ! "$1" == "--rerun" ]; then
-    aiqa build:start ${CMD_PARAM}
-    echo "==============================================================="
-    echo "START: initialize:tests"
-    aiqa initialize:tests
-
-    CI_FINAL_TEST_RESULT=$?
-    #echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER aiqa initialize:tests] = ${CI_FINAL_TEST_RESULT}"
-    if [ "${CI_FINAL_TEST_RESULT}" -gt 0 ]; then
-        exit ${CI_FINAL_TEST_RESULT}
-    fi
-
-    echo "==============================================================="
-    echo "START: initialize:src"
-    aiqa initialize:src
-
-    CI_FINAL_TEST_RESULT=$?
-    #echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER aiqa initialize:src] = ${CI_FINAL_TEST_RESULT}"
-    if [ "${CI_FINAL_TEST_RESULT}" -gt 0 ]; then
-        exit ${CI_FINAL_TEST_RESULT}
-    fi
-
-    echo "==============================================================="
-    echo "====> PREDICTION"
-    echo "build:testsToRun ${CMD_PARAM}"
-
     aiqa build:testsToRun ${CMD_PARAM} > ${CI_SCENARIOS_LIST_FILENAME}
-
-    if [ "${CMD_PARAM}" == "--strategy=map" ]; then
-        echo "build:testsToRun --strategy=sinceLastDump"
-        aiqa build:testsToRun --strategy=sinceLastDump >> ${CI_SCENARIOS_LIST_FILENAME}
-
-        cat ${CI_SCENARIOS_LIST_FILENAME} | sort | uniq > __ci_tmp_file.txt
-        cat __ci_tmp_file.txt > ${CI_SCENARIOS_LIST_FILENAME}
-        rm __ci_tmp_file.txt
-    fi
-
-    CI_FINAL_TEST_RESULT=$?
-    #echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER build:testsToRun] = ${CI_FINAL_TEST_RESULT}"
-    if [ "${CI_FINAL_TEST_RESULT}" -gt 0 ]; then
-        exit ${CI_FINAL_TEST_RESULT}
-    fi
 else
     echo "==============================================================="
     echo "RERUN: build:failedTests"
     aiqa build:failedTests > ${CI_SCENARIOS_LIST_FILENAME}
+fi
+
+if [ "${CMD_PARAM}" == "--strategy=map" ]; then
+    echo "build:testsToRun --strategy=sinceLastDump"
+    aiqa build:testsToRun --strategy=sinceLastDump >> ${CI_SCENARIOS_LIST_FILENAME}
+
+    cat ${CI_SCENARIOS_LIST_FILENAME} | sort | uniq > __ci_tmp_file.txt
+    cat __ci_tmp_file.txt > ${CI_SCENARIOS_LIST_FILENAME}
+    rm __ci_tmp_file.txt
+fi
+
+CI_FINAL_TEST_RESULT=$?
+#echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh][AFTER build:testsToRun] = ${CI_FINAL_TEST_RESULT}"
+if [ "${CI_FINAL_TEST_RESULT}" -gt 0 ]; then
+    exit ${CI_FINAL_TEST_RESULT}
 fi
 
 echo ""
@@ -130,10 +133,8 @@ CI_FINAL_TEST_RESULT=$?
 
 #echo "CI_FINAL_TEST_RESULT[_ci_aiqa.sh] = ${CI_FINAL_TEST_RESULT}"
 
-if [ ! "$1" == "--rerun" ]; then
-    echo "==============================================================="
-    aiqa build:stop
-fi
+echo "==============================================================="
+aiqa build:stop
 
 exit ${CI_FINAL_TEST_RESULT}
 # vim:ts=4:sw=4:et:syn=sh:
