@@ -5,7 +5,7 @@
 #
 # (c)2019 AIQA Technologies
 #
-# ver. 0.1.53
+# ver. 0.1.54
 
 source _ci_vars.sh
 
@@ -64,6 +64,13 @@ if [ "$1" == "--sinceLastDump" ]; then
 fi
 if [ "$1" == "--recommendation" ]; then
     CMD_PARAM="--strategy=recommendation"
+fi
+
+if [ "$1" == "--local" ]; then
+    ./_ci_find_local_tests.sh
+    ./_ci_run_tests_with_parallel.sh
+    ./_ci_verify_tests_results.sh
+    exit
 fi
 
 aiqa build:start ${CMD_PARAM}
