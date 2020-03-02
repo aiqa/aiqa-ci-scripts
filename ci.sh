@@ -5,11 +5,12 @@
 #
 # (c)2019 AIQA Technologies
 #
-# ver. 0.1.53
+# ver. 0.1.54
 
 #
 # PARAMETERS
 #
+#    --local
 #    --full-set
 #    --all
 #    --none
