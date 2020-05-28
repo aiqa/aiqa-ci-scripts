@@ -28,6 +28,7 @@
 #    --map
 #    --recommendation
 #    --sinceLastDump
+#    --strategy=map-and-since-last-dump
 #
 #    --rerun
 #

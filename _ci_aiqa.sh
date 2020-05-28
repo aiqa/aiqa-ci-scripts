@@ -62,6 +62,9 @@ fi
 if [ "$1" == "--sinceLastDump" ]; then
     CMD_PARAM="--strategy=sinceLastDump"
 fi
+if [ "$1" == "--strategy=map-and-since-last-dump" ]; then
+    CMD_PARAM="--strategy=map"
+fi
 if [ "$1" == "--recommendation" ]; then
     CMD_PARAM="--strategy=recommendation"
 fi
@@ -106,7 +109,7 @@ else
     aiqa build:failedTests > ${CI_SCENARIOS_LIST_FILENAME}
 fi
 
-if [ "${CMD_PARAM}" == "--strategy=map" ]; then
+if [ "${CMD_PARAM}" == "--strategy=map-and-since-last-dump" ]; then
     echo "build:testsToRun --strategy=sinceLastDump"
     aiqa build:testsToRun --strategy=sinceLastDump >> ${CI_SCENARIOS_LIST_FILENAME}
 
