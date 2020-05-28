@@ -5,7 +5,7 @@
 #
 # (c)2019 AIQA Technologies
 #
-# ver. 0.1.55
+# ver. 0.1.56
 
 source _ci_vars.sh
 
